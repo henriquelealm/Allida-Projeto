@@ -21,7 +21,7 @@ class SignUpForm(UserCreationForm):
 
 class EditProfileForm(UserChangeForm):
     username = forms.CharField(label="Usuario:",
-                               max_length=32, help_text="<small id='emailHelp' class='form-text text-muted'>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small>", widget=forms.TextInput(attrs={'class': 'form-control'}))
+                               max_length=32, help_text="", widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(label="Primeiro nome:",
                                  max_length=32, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(label="Sobrenome:",

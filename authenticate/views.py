@@ -18,10 +18,10 @@ def login_user(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Você logou com sucesso!')
-            return redirect('home')
+            return redirect('login')
         else:
             messages.warning(request, "Usuário ou senha incorretos!")
-            return redirect('login')
+            return redirect('home')
     else:
         return render(request, 'authenticate/login.html')
 
