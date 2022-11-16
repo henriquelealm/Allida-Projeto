@@ -17,15 +17,17 @@
         {% csrf_token %}
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" class="e284_3" name="username" id="username" placeholder="Login">
+            <input type="text" class="e284_3" name="username" id="username" placeholder=" Login">
         </div>
       <div class="e284_4"></div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" class="e284_4" name="password" id="password" placeholder="Senha">
+        <input type="password" class="e284_4" name="password" id="password" placeholder=" Senha">
         </div>
       <div class=e284_5>
-        <button type="submit" class="e284_6">Login</button>
+        <button type="submit" class="e284_6">
+          <span  class="e284_7 cancelar-btn">LOGIN</span>
+        </button>
         </button>
       </div>
     </form>
@@ -33,7 +35,9 @@
         {% csrf_token %}
       <div class=e284_10>
         <button class="e284_11">
-            <button type="submit" class="e284_11">Cadastrar</button>
+            <button type="submit" class="e284_11">
+              <span  class="e284_12 cancelar-btn">CADASTRO</span>
+            </button>
         </button>
       </div>
     </div>
@@ -46,6 +50,7 @@
     width:390px;
     height:844px;
     position:absolute;
+    border-style: none;
   }
   .e253_85 { 
     width:390px;
@@ -56,6 +61,7 @@
     background-image:url(images/login.png);
     background-repeat:no-repeat;
     background-size:cover;
+    border-style: none;
   }
   .e284_3 { 
     background-color:rgba(255, 255, 255, 1);
@@ -68,6 +74,7 @@
     border-top-right-radius:10px;
     border-bottom-left-radius:10px;
     border-bottom-right-radius:10px;
+    border-style: none;
   }
   .e284_4 { 
     background-color:rgba(255, 255, 255, 1);
@@ -80,6 +87,7 @@
     border-top-right-radius:10px;
     border-bottom-left-radius:10px;
     border-bottom-right-radius:10px;
+    border-style: none;
   }
   .e284_5 { 
     width:123px;
@@ -87,6 +95,7 @@
     position:absolute;
     left:133px;
     top:648px;
+    border-style: none;
   }
   .e284_6 { 
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -100,14 +109,15 @@
     border-top-right-radius:20px;
     border-bottom-left-radius:20px;
     border-bottom-right-radius:20px;
+    border-style: none;
   }
   .e284_7 { 
     color:rgba(255, 255, 255, 1);
     width:49px;
     height:18px;
     position:absolute;
-    left:39px;
-    top:11px;
+    left:36px;
+    top:12px;
     font-family:Syne;
     text-align:center;
     font-size:15px;
@@ -119,6 +129,7 @@
     position:absolute;
     left:133px;
     top:704px;
+    border-style: none;
   }
   .e284_11 { 
     box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -132,6 +143,7 @@
     border-top-right-radius:20px;
     border-bottom-left-radius:20px;
     border-bottom-right-radius:20px;
+    border-style: none;
   }
   .e284_12 { 
     color:rgba(240.00000089406967, 113.00000086426735, 103.0000014603138, 1);
@@ -142,7 +154,7 @@
     top:12px;
     font-family:Syne;
     text-align:center;
-    font-size:14px;
+    font-size:15px;
     letter-spacing:0;
   }
   
