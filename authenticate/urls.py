@@ -10,6 +10,11 @@ urlpatterns = [
     path('register/', views.register_user, name='register'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('change_password/', views.change_password, name='change_password'),
+    path('pagPostLogin/',views.pagPostLogin,name='pagPostLogin'),
+    path('pareandoSucesso/',views.pareandoSucesso,name='pareandoSucesso'),
+    path('dispositivoCadastrado/',views.dispositivoCadastrado,name='dispositivoCadastrado'),
+    path('dispositivoCadastradoAlerta/',views.dispositivoCadastrado,name='dispositivoCadastradoAlerta'),
+    path('alerta/',views.alerta,name='alerta'),
 
     path('password_reset/', auth_views.PasswordResetView.as_view(),
          name='password_reset'),

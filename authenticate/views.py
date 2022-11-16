@@ -4,9 +4,26 @@ from django.contrib import messages
 from .forms import SignUpForm, EditProfileForm, ChangePasswordForm
 from django.contrib.auth.models import User
 
+def alerta(request):
+    return render(request, 'authenticate/alerta.html')
 
 def home(request):
     return render(request, 'authenticate/home.html')
+
+def pagPostLogin(request):
+    return render(request, 'authenticate/pagPostLogin.html')
+
+def pareandoSucesso(request):
+    return render(request, 'authenticate/pareandoSucesso.html')
+
+def dispositivoCadastrado(request):
+    f = open("fall.txt", "r")
+    lines = f.readlines()
+    f.close()
+    if(len(lines) > 0):
+        return render(request, 'authenticate/dispositivoCadastradoAlerta.html')
+    else:
+        return render(request, 'authenticate/dispositivoCadastrado.html')
 
 
 def login_user(request):
