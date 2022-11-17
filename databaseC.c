@@ -12,35 +12,40 @@
 struct node* head = NULL;
 
 void inserir(int);
-void printar();
+void printar(int);
+void printarTxt(int);
 
 struct node* criar_lista(int);
 
 int tamanho();
 int main()
 {
-    int tam,info,queda_c,queda_f;
+    int tam,info,queda_c,queda_f,nQuedas=0;
     int dados, position,batimentos,giroscopio,acelerometro;
     int batimentos_cmp,giroscopio_cmp,acelerometro_cmp,cont=0;
 
     while (1){                              
         printf("\nDigite a captacao do sensor de batimentos: ");
-        scanf("%d",&batimentos); //Foi captado os dados hipotéticos dos batimentos cardíacos
+        scanf(" %d",&batimentos); 
       
-        if (batimentos==2222) // Condição de parada do loop (a ser desenvolvida)
+        if (batimentos==0) 
             break;
 
-        // Para fins de validação, com o intuito de testarmos o programa, idealizamos parâmetros hipotéticos para os três sensores. Para o giroscópio e acelerômetro, estabelecemos uma escala de 0 a 10, onde 0 é representa ausência de movimentos e 10, movimentos muito bruscos
+      
       
         printf("Digite a captacao do giroscopio: ");
-        scanf("%d",&giroscopio);// Foi captado os dados hipotéticos do giroscopio
+        scanf(" %d",&giroscopio);
         printf("Digite a captacao do acelerometro: ");
-        scanf("%d",&acelerometro);// Foi captado os dados hipotéticos do acelerômetro
+        scanf(" %d",&acelerometro);
 
-        // Os seguintes parâmetros de verificação de quedas são apenas ilustrativos, com base na escala definida acima
+  
 
         if ((batimentos-batimentos_cmp>=40||batimentos-batimentos_cmp<=-40)&& acelerometro-acelerometro_cmp>=5 && giroscopio-giroscopio_cmp>=5 && cont>0){
           printf("\nFoi detectada uma queda aqui!\n");
+          nQuedas++;
+          queda_c=(nQuedas*3)-3;
+        
+          
             FILE *fp;
             fp = fopen("fall.txt", "w");
             if (fp == NULL){
@@ -49,12 +54,11 @@ int main()
             }
             fprintf(fp, "1");
             fclose(fp);
-
-        // Caso seja detectada uma queda, a variação dos dados registrados pelos sensores é armazenado numa lista encadeada
           
           inserir(batimentos-batimentos_cmp);
           inserir(acelerometro-acelerometro_cmp);
           inserir(giroscopio-giroscopio_cmp);
+          printarTxt(queda_c);
 
         }
         batimentos_cmp=batimentos;
@@ -63,28 +67,6 @@ int main()
         cont++;
     }
     system("cls");
-    tam=tamanho();
-
-  
-    printf("\nNo total, fora detectadas %d quedas!\n",tam/3);
-    while(1){ // É mostrando o total de quedas durante a execução
-        printf("\nVoce deseja ver informacoes de qual das quedas? \n");
-        scanf("%d",&info);
-        system("cls");
-        
-        if(info>=1 || info<=tam/3){
-            queda_c=(info*3)-3;
-            printf("\t Dados da queda %d \t",info); // É mostrado todas as variações dos dados coletados na queda em questão
-            printar(queda_c);
-          
-        }
-        else{
-            printf("Voce digitou um valor invalido! Encerrando programa...");
-          
-            break;
-        }
-    }
-
 
 }
 
@@ -127,65 +109,36 @@ void inserir(int dados)
     }
 }
 
-void printar(int c)
+
+void printarTxt(int c)
 {
     time_t rawtime;
     struct tm * timeinfo;
 
     time ( &rawtime );
     timeinfo = localtime ( &rawtime );
-    struct node* temp = head;
-    int cont=0;
+    struct node* aux = head;
+    struct node* pivot = head;
+    int cont2=0;
     FILE *file;
     file = fopen("fallHistory.txt", "a");
-    if (file == NULL){
-        printf("Error opening file!\n");
-        exit(1);
-    }
-    while (temp != NULL)
+
+    while (aux != NULL)
     {  
-        if(c==cont){
+        if(c==cont2){
         fprintf (file,"\nData e horário da queda: %s \n", asctime (timeinfo) );
-        fprintf(file,"Variacao dos batimentos cardiacos: %d  \n", temp->dados);
-        printf("\n Variacao dos batimentos cardiacos: %d  ", temp->dados); // É mostrada a variação dos dados dos batimentos cardíacos
-        temp = temp->prox;
-        fprintf(file,"Variacao do acelerometro: %d  \n", temp->dados);
-        printf("\n Variacao do acelerometro: %d  ", temp->dados);
-        temp = temp->prox; // É mostrada a variação dos dados do acelerômetro
-        fprintf(file,"Variacao do giroscopio: %d  \n \n \n", temp->dados);
+        fprintf(file,"Variacao dos batimentos cardiacos: %d  \n", aux->dados);
+        aux = aux->prox;
+        fprintf(file,"Variacao do acelerometro: %d  \n", aux->dados);
+        aux = aux->prox; 
+        fprintf(file,"Variacao do giroscopio: %d  \n \n \n", aux->dados);
         fprintf(file,"---------------------------------------------------");
-        printf("\n Variacao do giroscopio: %d  ", temp->dados);
-        temp = temp->prox;// É mostrada a variação dos dados do giroscópio
+        aux = aux->prox;
         fclose(file);
     }
-    temp = temp->prox;
-        cont++;
+    aux = aux->prox;
+        cont2++;
 
     }
+    *head = *pivot;
 }
-int tamanho()
-{
-    struct node* temp = head;
-    int count = 0;
- 
-    while (temp != NULL)
-    {
-        count += 1;
-        temp = temp->prox;    
-    }
- 
-    return count;
-}
-
-/*int fallTransferWrite(void){
-    FILE *fp;
-    fp = fopen("fall.txt", "w");
-    if (fp == NULL){
-        printf("Error opening file!\n");
-        exit(1);
-    }
-    fprintf(fp, "This is testing for fprintf...\n");
-    fputs("This is testing for fputs...\n", fp);
-    fclose(fp);
-    return 0;
-}*/
