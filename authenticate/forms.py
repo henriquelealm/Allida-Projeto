@@ -5,9 +5,9 @@ from django import forms
 
 class SignUpForm(UserCreationForm):
     username = forms.EmailField(label="",
-                               max_length=32, help_text="", widget=forms.TextInput(attrs={'class': 'e261_31', 'placeholder': 'Usuário'}))
+                               max_length=32, help_text="", widget=forms.TextInput(attrs={'class': 'e261_31', 'placeholder': 'Usuário'}),required= False)
     first_name = forms.CharField(label="",
-                                 max_length=32, widget=forms.TextInput(attrs={'class': 'e261_27', 'placeholder': 'Nome completo'}))
+                                 max_length=32, widget=forms.TextInput(attrs={'class': 'e261_27', 'placeholder': 'Nome completo'}),required= False)
     password1 = forms.CharField(label="", help_text="",
                                 max_length=40, widget=forms.PasswordInput(attrs={'class': 'e261_33', 'placeholder': 'Senha'}))
     password2 = forms.CharField(label="", help_text="",

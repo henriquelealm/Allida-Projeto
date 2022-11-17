@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include <time.h>
+
  struct node
 {
     struct node* ant;
@@ -21,17 +23,6 @@ int main()
     int dados, position,batimentos,giroscopio,acelerometro;
     int batimentos_cmp,giroscopio_cmp,acelerometro_cmp,cont=0;
 
-    /*FILE *fp;
-    fp = fopen("fall.txt", "w");
-    if (fp == NULL){
-        printf("Error opening file!\n");
-        exit(1);
-    }
-    fprintf(fp, "This is testing for fprintf...\n");
-    fputs("This is testing for fputs...\n", fp);
-    fclose(fp);
-    return 0;*/
-  
     while (1){                              
         printf("\nDigite a captacao do sensor de batimentos: ");
         scanf("%d",&batimentos); //Foi captado os dados hipotéticos dos batimentos cardíacos
@@ -58,7 +49,6 @@ int main()
             }
             fprintf(fp, "1");
             fclose(fp);
-            return 0;
 
         // Caso seja detectada uma queda, a variação dos dados registrados pelos sensores é armazenado numa lista encadeada
           
@@ -139,17 +129,34 @@ void inserir(int dados)
 
 void printar(int c)
 {
+    time_t rawtime;
+    struct tm * timeinfo;
+
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
     struct node* temp = head;
     int cont=0;
+    FILE *file;
+    file = fopen("fallHistory.txt", "a");
+    if (file == NULL){
+        printf("Error opening file!\n");
+        exit(1);
+    }
     while (temp != NULL)
     {  
         if(c==cont){
+        fprintf (file,"\nData e horário da queda: %s \n", asctime (timeinfo) );
+        fprintf(file,"Variacao dos batimentos cardiacos: %d  \n", temp->dados);
         printf("\n Variacao dos batimentos cardiacos: %d  ", temp->dados); // É mostrada a variação dos dados dos batimentos cardíacos
         temp = temp->prox;
+        fprintf(file,"Variacao do acelerometro: %d  \n", temp->dados);
         printf("\n Variacao do acelerometro: %d  ", temp->dados);
         temp = temp->prox; // É mostrada a variação dos dados do acelerômetro
+        fprintf(file,"Variacao do giroscopio: %d  \n \n \n", temp->dados);
+        fprintf(file,"---------------------------------------------------");
         printf("\n Variacao do giroscopio: %d  ", temp->dados);
         temp = temp->prox;// É mostrada a variação dos dados do giroscópio
+        fclose(file);
     }
     temp = temp->prox;
         cont++;

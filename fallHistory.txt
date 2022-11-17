@@ -1,0 +1,33 @@
+
+Data e horário da queda: Thu Nov 17 14:32:20 2022
+ 
+Variacao dos batimentos cardiacos: 100  
+Variacao do acelerometro: 10  
+Variacao do giroscopio: 10  
+ 
+ 
+---------------------------------------------------
+Data e horário da queda: Thu Nov 17 14:32:20 2022
+ 
+Variacao dos batimentos cardiacos: 100  
+Variacao do acelerometro: 10  
+Variacao do giroscopio: 10  
+ 
+ 
+---------------------------------------------------
+Data e horário da queda: Thu Nov 17 14:32:20 2022
+ 
+Variacao dos batimentos cardiacos: 100  
+Variacao do acelerometro: 10  
+Variacao do giroscopio: 10  
+ 
+ 
+---------------------------------------------------
+Data e horário da queda: Thu Nov 17 14:32:21 2022
+ 
+Variacao dos batimentos cardiacos: 100  
+Variacao do acelerometro: 10  
+Variacao do giroscopio: 10  
+ 
+ 
+---------------------------------------------------
