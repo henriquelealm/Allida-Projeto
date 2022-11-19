@@ -8,6 +8,7 @@
 * [Gabriella Tereza]()
 * [Marina Simões]()
 * [Elissa Vangasse]()
+* [Leonardo Cavalcanti]()
 # Utilização
 
 Instalar o projeto usando o venv é recomendado, porém é possível instalar sem usá-lo também.
@@ -43,4 +44,4 @@ Agora, basta apenas rodar o servidor localmente:
 
     $ python manage.py runserver
 
-Dentro dessa pasta, haverá um arquivo databaseC.exe, que ao ser executado pelo próprio windows. irá enviar informações de quedas para o Django
+Dentro dessa pasta, haverá um arquivo databaseC.exe, que ao ser executado pelo próprio windows, irá enviar informações de quedas para o Django
