@@ -1,9 +1,0 @@
-
-Data e horário da queda: Thu Nov 17 15:48:10 2022
- 
-Variacao dos batimentos cardiacos: 100  
-Variacao do acelerometro: 10  
-Variacao do giroscopio: 10  
- 
- 
----------------------------------------------------
