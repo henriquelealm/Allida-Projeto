@@ -1,4 +1,13 @@
 # Allida-Projeto
+## Equipe:
+* [Henrique Leal](https://www.linkedin.com/in/henrique-leal-b24172234/)
+* [Théo Moura](https://www.linkedin.com/in/theo-moura-011662232/)
+* [Victor Montenegro](https://www.linkedin.com/in/victor-montenegro-833599234/)
+* [Pedro Lino](https://www.linkedin.com/in/pedro-lino-4ab6621a1/)
+* [Bernardo Nunes]()
+* [Gabriella Tereza]()
+* [Marina Simões]()
+* [Elissa Vangasse]()
 # Utilização
 
 Instalar o projeto usando o venv é recomendado, porém é possível instalar sem usá-lo também.
