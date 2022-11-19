@@ -5,7 +5,7 @@
 * [Victor Montenegro](https://www.linkedin.com/in/victor-montenegro-833599234/)
 * [Pedro Lino](https://www.linkedin.com/in/pedro-lino-4ab6621a1/)
 * [Bernardo Nunes]()
-* [Gabriella Tereza]()
+* [Gabriella Tereza](https://www.linkedin.com/in/gabriella-bortolini-0508ba237/)
 * [Marina Simões]()
 * [Elissa Vangasse]()
 * [Leonardo Cavalcanti]()
