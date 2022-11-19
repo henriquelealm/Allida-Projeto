@@ -22,6 +22,7 @@ Caso não tenha o django instalado ainda execute:
 
     $ pip3 install django
     
+Screencast da utilização do produto: https://drive.google.com/file/d/1HbWFwMYaQ5X6poGqCngDBcQl2AdSt6zr/view
 
 # Começando
 
